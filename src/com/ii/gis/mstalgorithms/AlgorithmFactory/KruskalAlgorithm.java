@@ -18,44 +18,30 @@ public class KruskalAlgorithm extends MSTAlgorithm{
 
 	@Override
 	public Graph solve() {
+		addLog("Kruskal:");
 		sortEdges();
-		LinkedList<Tree> trees = new LinkedList<Tree>();
-		for (String node : graph.getNodes()){
-			trees.add(new Tree(node));
-		}
+		LinkedList<Tree> trees = prepareTrees();
 		while (trees.size()!=1){
 			Edge e = graph.getEdges().get(0);
-			System.out.println("Krawędź: " + e.toString());
-			Tree first, second;
-			first = getTree(trees, e.getFirst());
-			second = getTree(trees, e.getSecond());
-			if(first!=second){
-				System.out.println("Przyjmuję");
-				mergeTree(trees, first, second, e);
-			}
-			else{
-				System.out.println("Odrzucam");
+			LinkedList<Tree> toMerge = getTreeList(trees, e);
+			if(toMerge.get(0)!=toMerge.get(1)){
+				addLog(e.toString());
+				mergeTree(trees, toMerge.get(0), toMerge.get(1), e);
 			}
 			graph.getEdges().remove(0);
 		}
 		return trees.get(0);
 	}
 
-	private void mergeTree(LinkedList<Tree> trees, Tree first, Tree second, Edge e) {
-		Tree t = new Tree(first, second);
-		t.addEdge(e);
-		trees.remove(first);
-		trees.remove(second);
-		trees.add(t);
-	}
-
-	private Tree getTree(LinkedList<Tree> trees, String node) {
-		for (Tree t : trees){
+	private LinkedList<Tree> getTreeList(LinkedList<Tree> trees, Edge e) {
+		LinkedList<Tree> toMerge = new LinkedList<Tree>();
+		for (Tree t : trees)
 			for (String s : t.getNodes()){
-				if (s.equals(node))
-					return t;
+				if (s.equals(e.getFirst()) || s.equals(e.getSecond()))
+					toMerge.add(t);
+				if (toMerge.size()==2)
+					return toMerge;
 			}
-		}
 		return null;
 	}
 

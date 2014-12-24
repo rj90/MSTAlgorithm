@@ -5,6 +5,7 @@ import java.util.LinkedList;
 public class Tree extends Graph{
 
 	private LinkedList<Edge> possibleEdges = new LinkedList<Edge>();
+	private Boolean toMerge = false;
 	
 	public Tree(String node) {
 		super();
@@ -37,5 +38,13 @@ public class Tree extends Graph{
 	
 	public LinkedList<Edge> getPossibleEdges(){
 		return this.possibleEdges;
+	}
+	
+	public void setToMerge(boolean toMerge){
+		this.toMerge = toMerge;
+	}
+	
+	public boolean getToMerge(){
+		return this.toMerge;
 	}
 }

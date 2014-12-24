@@ -15,6 +15,12 @@ public class Graph {
 			this.weight = weight;
 		}
 		
+		public Edge(Edge edge) {
+			this.first = edge.getFirst();
+			this.second = edge.getSecond();
+			this.weight = edge.getWeight();
+		}
+
 		public String getFirst(){
 			return this.first;
 		}
@@ -40,6 +46,16 @@ public class Graph {
 	}
 	
 	
+	public Graph(Graph graph) {
+		for (String node : graph.getNodes())
+			nodes.add(new String(node));
+		for (Edge edge : graph.getEdges())
+			edges.add(new Edge(edge));
+	}
+
+	public Graph() {
+	}
+
 	public void addEdge(String first, String second, double weight){
 		addNode(first);
 		addNode(second);
@@ -54,9 +70,8 @@ public class Graph {
 
 
 	public void addNode(String node) {
-		if(!isAdded(node)){
+		if(!isAdded(node))
 			nodes.add(node);
-		}
 	}
 
 
@@ -72,9 +87,8 @@ public class Graph {
 		StringBuilder edgesData = new StringBuilder();
 		for (Edge e : edges){
 			edgesData.append(e.toString());
-			if(i!=edges.size()){
+			if(i!=edges.size())
 				edgesData.append("\n");
-			}
 			i++;
 		}
 		return edgesData.toString();
