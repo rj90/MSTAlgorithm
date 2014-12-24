@@ -37,18 +37,18 @@ public class PrimAlgorithm extends MSTAlgorithm{
 //	}
 	
 	@Override
-	public Graph solve(){
+	public void solve(){
 		Tree tree = new Tree(graph.getNodes().get(0));
 		while (graph.getNodes().size()!=tree.getNodes().size()){
 			addPossibleEdges(tree);
 			sortPossibleEdges(tree);
 			Edge e = tree.getPossibleEdges().get(0);
+			addLog(e.toString());
 			tree.addEdge(e);
 			tree.addNode(possibleNode(tree, e));
 			tree.getPossibleEdges().clear();
 			graph.getEdges().remove(getGraphEdge(e));
 		}
-		return tree;
 	}
 
 	private Object getGraphEdge(Edge e) {

@@ -9,7 +9,7 @@ import com.ii.gis.mstalgorithms.Graph.Graph.Edge;
 
 public abstract class MSTAlgorithm {
 	protected Graph graph;
-	protected StringBuilder log;
+	protected StringBuilder log = new StringBuilder();
 	
 	public MSTAlgorithm(Graph graph){
 		loadGraph(graph);
@@ -22,7 +22,7 @@ public abstract class MSTAlgorithm {
 		this.graph = new Graph(graph);		
 	}
 	
-	public abstract Graph solve();
+	public abstract void solve();
 	
 	protected boolean graphHasCycles(){
 		return false;
@@ -71,5 +71,9 @@ public abstract class MSTAlgorithm {
 	
 	public String getLog(){
 		return this.log.toString();
+	}
+	
+	public Graph getGraph(){
+		return graph;
 	}
 }

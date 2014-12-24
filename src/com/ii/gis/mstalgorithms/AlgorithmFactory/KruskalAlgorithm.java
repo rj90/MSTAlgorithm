@@ -17,8 +17,7 @@ public class KruskalAlgorithm extends MSTAlgorithm{
 	}
 
 	@Override
-	public Graph solve() {
-		addLog("Kruskal:");
+	public void solve() {
 		sortEdges();
 		LinkedList<Tree> trees = prepareTrees();
 		while (trees.size()!=1){
@@ -30,7 +29,6 @@ public class KruskalAlgorithm extends MSTAlgorithm{
 			}
 			graph.getEdges().remove(0);
 		}
-		return trees.get(0);
 	}
 
 	private LinkedList<Tree> getTreeList(LinkedList<Tree> trees, Edge e) {
