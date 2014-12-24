@@ -1,6 +1,7 @@
 package com.ii.gis.mstalgorithms.Graph;
 
 import java.io.FileInputStream;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class GraphLoader {
@@ -19,6 +20,7 @@ public class GraphLoader {
 						Double.parseDouble(gParameter[2]
 								.replace(",",".")));
 		}
+		Collections.sort(graph.getNodes());
 		return graph;
 	}
 
