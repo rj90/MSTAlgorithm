@@ -23,15 +23,17 @@ public class MSTAlgorithms {
 		//Dla kruskala
 		mstAlgorithm = MSTAlgorithmFactory.getInstance().getAlgorithm(graph, AlgType.Kruskal);
 		mstAlgorithm.solve();
+		System.out.println("Kruskal:");
 		System.out.print(mstAlgorithm.getLog());		
 		//Dla Prima
 		mstAlgorithm = MSTAlgorithmFactory.getInstance().getAlgorithm(graph, AlgType.Prim);
 		mstAlgorithm.solve();
+		System.out.println("Prim:");
 		System.out.print(mstAlgorithm.getLog());
 		//Dla Borówki
 		mstAlgorithm = MSTAlgorithmFactory.getInstance().getAlgorithm(graph, AlgType.Boruvka);
 		mstAlgorithm.solve();
-		System.out.print(mstAlgorithm.getLog());
-		
+		System.out.println("Boruvka:");
+		System.out.print(mstAlgorithm.getLog());	
 	}
 }

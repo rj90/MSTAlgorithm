@@ -14,18 +14,14 @@ public class Tree extends Graph{
 
 	public Tree(Tree first, Tree second) {
 		super();
-		for(String s: first.getNodes()){
+		for(String s: first.getNodes())
 			nodes.add(s);
-		}
-		for(String s: second.getNodes()){
+		for(String s: second.getNodes())
 			nodes.add(s);
-		}
-		for(Edge e : first.getEdges()){
+		for(Edge e : first.getEdges())
 			edges.add(e);
-		}
-		for(Edge e : second.getEdges()){
+		for(Edge e : second.getEdges())
 			edges.add(e);
-		}
 	}
 	
 	public void addPossibleEdge(Edge e){

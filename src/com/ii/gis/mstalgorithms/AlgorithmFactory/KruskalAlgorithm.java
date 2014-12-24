@@ -12,8 +12,7 @@ public class KruskalAlgorithm extends MSTAlgorithm{
 		super(graph);
 	}
 	
-	public KruskalAlgorithm() {
-		
+	public KruskalAlgorithm() {	
 	}
 
 	@Override

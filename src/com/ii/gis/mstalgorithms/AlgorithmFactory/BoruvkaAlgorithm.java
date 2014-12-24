@@ -13,7 +13,6 @@ public class BoruvkaAlgorithm extends MSTAlgorithm{
 	}
 	
 	public BoruvkaAlgorithm() {
-		
 	}
 
 	@Override
@@ -21,10 +20,9 @@ public class BoruvkaAlgorithm extends MSTAlgorithm{
 		LinkedList<Tree> trees = prepareTrees();
 		
 		while (trees.size() != 1){
-			for (Tree tree : trees){
+			for (Tree tree : trees)
 				//Dodawanie nowej krawędzi do drzewa.
 				solveTree(tree);
-			}
 			//Scalanie nowych drzew
 			while(isToMerge(trees))
 				mergeTrees(trees);
@@ -49,7 +47,7 @@ public class BoruvkaAlgorithm extends MSTAlgorithm{
 
 	private void mergeTrees(LinkedList<Tree> trees) {
 		for (Tree tree1 :trees){
-			for (Tree tree2 :trees){
+			for (Tree tree2 :trees)
 				if (tree1 == tree2);
 				else if (possibleToAdd(tree2, tree1.getPossibleEdges().get(0))){
 					Edge e = tree1.getPossibleEdges().get(0);
@@ -58,9 +56,7 @@ public class BoruvkaAlgorithm extends MSTAlgorithm{
 					mergeTree(trees, tree1, tree2, e);
 					return;
 				}
-			}
 			tree1.setToMerge(false);
 		}
 	}
-
 }

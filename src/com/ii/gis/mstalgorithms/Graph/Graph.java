@@ -43,8 +43,7 @@ public class Graph {
 		public int compareTo(Edge o) {
 			return this.weight > o.weight ? 1 : (this.weight < o.weight ? -1 : 0);
 		}
-	}
-	
+	}	
 	
 	public Graph(Graph graph) {
 		for (String node : graph.getNodes())
@@ -68,12 +67,10 @@ public class Graph {
 		edges.add(new Edge(e.getFirst(), e.getSecond(), e.getWeight()));
 	}
 
-
 	public void addNode(String node) {
 		if(!isAdded(node))
 			nodes.add(node);
 	}
-
 
 	public boolean isAdded(String node) {
 		for (String n : nodes)
@@ -94,11 +91,9 @@ public class Graph {
 		return edgesData.toString();
 	}
 
-
 	public LinkedList<Edge> getEdges() {
 		return this.edges;
 	}
-
 
 	public LinkedList<String> getNodes() {
 		return this.nodes;
