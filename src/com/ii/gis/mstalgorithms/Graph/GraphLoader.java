@@ -25,7 +25,7 @@ public class GraphLoader {
 	}
 
 	private static String readDataFromFile(String filename) throws Exception{
-		StringBuilder data = new StringBuilder();
+		StringBuffer data = new StringBuffer();
 		Scanner in = new Scanner(new FileInputStream(filename));
 		while(in.hasNextLine())
 			data.append(in.nextLine()+"\n");
